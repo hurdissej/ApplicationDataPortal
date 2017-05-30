@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 using ApplicationDataPortal.Models;
 
 namespace ApplicationDataPortal.Controllers
@@ -27,9 +28,16 @@ namespace ApplicationDataPortal.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            var customers = _context.Customers.ToList();
+            var displayTypes = _context.DisplayTypes
+                .Include(c => c.Customer)
+                .ToList();
             
 
+            return View(displayTypes);
+        }
+
+        public ActionResult New()
+        {
             return View();
         }
     }

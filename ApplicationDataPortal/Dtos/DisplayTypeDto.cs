@@ -14,10 +14,8 @@ namespace ApplicationDataPortal.Dtos
 
         public CustomersDto Customer { get; set; }
 
-        [Required]
         public int CustomerId { get; set; }
 
-        [Display(Name = "Date Added")]
         public DateTime DateAdded { get; set; }
     }
 }

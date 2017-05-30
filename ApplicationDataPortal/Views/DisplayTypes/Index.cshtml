@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ApplicationDataPortal.Models.DisplayTypes>
+﻿@using ApplicationDataPortal.Models
+<!--model List<ApplicationDataPortal.Models.DisplayTypes>-->
 
 @{
     ViewBag.Title = "Index";
@@ -8,3 +9,37 @@
 <h1> Display Type Manager </h1>
 
 
+@Html.ActionLink("Add a display Type", "New", "DisplayTypes", new { @class ="btn btn-primary"})
+
+
+<table id="displayTypes" style="width: 100%" class="table table-striped table-hover ">
+    <thead>
+    <tr>
+        <th> Display Type </th>
+        <th> Customer </th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#displayTypes").DataTable({
+                    ajax: {
+                        url: "/api/DisplayTypes",
+                        dataSrc: ""
+                },
+                    columns: [
+                        {
+                            data: "description"
+                        }, {
+                            data: "customer.name"
+                        }
+                    ]
+                });
+        });
+    </script>
+}
