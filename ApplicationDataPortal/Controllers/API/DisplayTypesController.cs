@@ -62,6 +62,41 @@ namespace ApplicationDataPortal.Controllers.API
             _context.SaveChanges();
         }
 
+        //Put /api/displaytypes/1 
+        [HttpPut]
+        public IHttpActionResult UpdateDisplayType(int id, DisplayTypeDto displayTypeDto)
+        {
+            var displayTypeInDB = _context.DisplayTypes.Single(d => d.Id == id);
+
+            if (displayTypeInDB == null)
+            {
+                return BadRequest("That Display Type doesn't exist");
+            }
+            
+            displayTypeInDB.Description = displayTypeDto.Description;
+            displayTypeInDB.CustomerId = displayTypeInDB.CustomerId;
+            _context.SaveChanges();
+            return Ok();
+
+
+        }
+
+        [HttpDelete]
+        public IHttpActionResult DeleteDisplayType(int id)
+        {
+            var displayTypeInDb = _context.DisplayTypes.Single(d => d.Id == id);
+
+            if (displayTypeInDb == null)
+            {
+                return BadRequest("Display Type not found");
+            }
+
+            _context.DisplayTypes.Remove(displayTypeInDb);
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
 
     }
 }

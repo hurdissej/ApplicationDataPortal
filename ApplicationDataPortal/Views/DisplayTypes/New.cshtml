@@ -63,9 +63,9 @@
                     })
                     .done(function() {
                         toastr.success("Successfully Posted Display Type");
-
                         $("#customer").typeahead("val", "");
                         $("#name").val('');
+                        $(location).attr('href', '/DisplayTypes');
                     })
                     .fail(function() {
                         toastr.error("Failed to post display type");

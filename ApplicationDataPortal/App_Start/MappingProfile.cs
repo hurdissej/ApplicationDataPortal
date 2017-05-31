@@ -13,7 +13,8 @@ namespace Vidly.App_Start
         public MappingProfile()
         {
             Mapper.CreateMap<DisplayTypes, DisplayTypeDto>();
-            Mapper.CreateMap<DisplayTypeDto, DisplayTypes>();
+            Mapper.CreateMap<DisplayTypeDto, DisplayTypes>()
+                .ForMember(c => c.Id, opt => opt.Ignore());
             Mapper.CreateMap<Customer, CustomersDto>();
 
         }
