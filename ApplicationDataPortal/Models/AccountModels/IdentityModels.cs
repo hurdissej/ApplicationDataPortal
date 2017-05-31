@@ -22,6 +22,7 @@ namespace ApplicationDataPortal.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Promotions> Promotions { get; set; }
         public DbSet<DisplayTypes> DisplayTypes { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
