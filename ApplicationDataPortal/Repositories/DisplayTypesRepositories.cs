@@ -37,14 +37,12 @@ namespace ApplicationDataPortal.Repositories
         {
             displayTypeInDb.Description = displayTypeDto.Description;
             displayTypeInDb.CustomerId = displayTypeDto.CustomerId;
-            _context.SaveChanges();
         }
 
         public void DeleteDisplayType(int Id)
         {
 
             _context.DisplayTypes.Remove(GetDisplayType(Id));
-            _context.SaveChanges();
         }
 
 
@@ -58,7 +56,6 @@ namespace ApplicationDataPortal.Repositories
             };
 
             _context.DisplayTypes.Add(displaytype);
-            _context.SaveChanges();
         }
     }
 }
