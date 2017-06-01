@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using ApplicationDataPortal.Dtos;
 using ApplicationDataPortal.Models;
+using ApplicationDataPortal.Repositories;
 using AutoMapper;
 
 namespace ApplicationDataPortal.Controllers.API
@@ -15,33 +16,27 @@ namespace ApplicationDataPortal.Controllers.API
     {
 
         private ApplicationDbContext _context;
+        private readonly CustomersRepository _customersRepository;
 
         public CustomersController()
         {
             _context = new ApplicationDbContext();
+            _customersRepository = new CustomersRepository(_context);
         }
 
         //Get api/customers
 
         public IHttpActionResult getCustomers(string query = null)
         {
-            IQueryable<Customer> customersQuery = _context.Customers;
-                
-            if (!String.IsNullOrWhiteSpace(query))
-            {
-                customersQuery = customersQuery.Where(m => m.Name.Contains(query));
-            }
-            
+            var customersQuery = _customersRepository.GetCustomers(query);
+
             return Ok(customersQuery);
         }
 
-        public IHttpActionResult getCustomer(int id)
+
+        public IHttpActionResult getCustomer(int Id)
         {
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
-
-            return Ok(customer);
+            return Ok(_customersRepository.GetCustomer(Id));
         }
-
-        
     }
 }
