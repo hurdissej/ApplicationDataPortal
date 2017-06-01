@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using ApplicationDataPortal.Dtos;
 using ApplicationDataPortal.Models;
+using ApplicationDataPortal.Repositories;
 using AutoMapper;
 
 namespace ApplicationDataPortal.Controllers.API
@@ -14,89 +15,67 @@ namespace ApplicationDataPortal.Controllers.API
     public class DisplayTypesController : ApiController
     {
         private ApplicationDbContext _context;
+        private readonly DisplayTypesRepositories _displayTypesRepositories;
 
         public DisplayTypesController()
         {
             _context = new ApplicationDbContext();
+            _displayTypesRepositories = new DisplayTypesRepositories(_context);
+            
         }
-
         
         //Get /api/DisplayTypes
-        public IHttpActionResult GetDisplayTypes(string query = null)
+        public IHttpActionResult GetDisplayTypes()
         {
-            var displayTypes = _context.DisplayTypes
-                .Include(c => c.Customer)
-                .ToList();
-            
-
-            var display = displayTypes
+            var display = _displayTypesRepositories.GetDisplayTypes()
                 .Select(Mapper.Map<DisplayTypes, DisplayTypeDto>);
 
             return Ok(display);
         }
 
-
+        
         //Get /api/DisplayTypes/1
         public IHttpActionResult GetDisplayType(int Id)
         {
-            var displayType = _context.DisplayTypes
-                .Include(c => c.Customer)
-                .SingleOrDefault(c => c.Id == Id);
-
-            return Ok(displayType);
+            return Ok(_displayTypesRepositories.GetDisplayType(Id));
         }
-
+        
         //Post /api/DisplayTypes/
         [HttpPost]
         public void CreateDisplayType(DisplayTypeDto displayTypeDto)
         {
-            
-            var displaytype = new DisplayTypes
-            {
-                Description = displayTypeDto.Description,
-                CustomerId = displayTypeDto.CustomerId,
-                DateAdded = DateTime.Now
-            };
-
-            _context.DisplayTypes.Add(displaytype);
-            _context.SaveChanges();
+            _displayTypesRepositories.CreateDisplayType(displayTypeDto);
         }
+
 
         //Put /api/displaytypes/1 
         [HttpPut]
-        public IHttpActionResult UpdateDisplayType(int id, DisplayTypeDto displayTypeDto)
+        public IHttpActionResult UpdateDisplayType(int Id, DisplayTypeDto displayTypeDto)
         {
-            var displayTypeInDB = _context.DisplayTypes.Single(d => d.Id == id);
+            var displayTypeInDB = _displayTypesRepositories.GetDisplayType(Id);
 
             if (displayTypeInDB == null)
             {
                 return BadRequest("That Display Type doesn't exist");
             }
-            
-            displayTypeInDB.Description = displayTypeDto.Description;
-            displayTypeInDB.CustomerId = displayTypeInDB.CustomerId;
-            _context.SaveChanges();
+
+            _displayTypesRepositories.UpdateDisplayType(displayTypeDto,displayTypeInDB);
+
             return Ok();
-
-
         }
 
         [HttpDelete]
-        public IHttpActionResult DeleteDisplayType(int id)
+        public IHttpActionResult DeleteDisplayType(int Id)
         {
-            var displayTypeInDb = _context.DisplayTypes.Single(d => d.Id == id);
+            var displayTypeInDb = _displayTypesRepositories.GetDisplayType(Id);
 
             if (displayTypeInDb == null)
             {
                 return BadRequest("Display Type not found");
             }
-
-            _context.DisplayTypes.Remove(displayTypeInDb);
-            _context.SaveChanges();
+            _displayTypesRepositories.DeleteDisplayType(Id);
 
             return Ok();
         }
-
-
     }
 }
