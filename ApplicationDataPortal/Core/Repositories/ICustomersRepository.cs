@@ -1,7 +1,8 @@
 using System.Collections.Generic;
-using ApplicationDataPortal.Models;
+using ApplicationDataPortal.Core.Models;
+using ApplicationDataPortal.Core.Models.AccountModels;
 
-namespace ApplicationDataPortal.Repositories
+namespace ApplicationDataPortal.Core.Repositories
 {
     public interface ICustomersRepository
     {

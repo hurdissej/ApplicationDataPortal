@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ApplicationDataPortal.Models;
-using ApplicationDataPortal.Dtos;
+using ApplicationDataPortal.Core;
+using ApplicationDataPortal.Core.Models;
 using AutoMapper;
 
 namespace Vidly.App_Start

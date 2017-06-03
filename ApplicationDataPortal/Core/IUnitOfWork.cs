@@ -1,6 +1,6 @@
-﻿using ApplicationDataPortal.Models;
+﻿using ApplicationDataPortal.Core.Models.AccountModels;
 
-namespace ApplicationDataPortal.Persistence
+namespace ApplicationDataPortal.Core
 {
     public interface IUnitOfWork
     {

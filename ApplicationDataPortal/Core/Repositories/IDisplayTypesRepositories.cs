@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using ApplicationDataPortal.Dtos;
-using ApplicationDataPortal.Models;
+using ApplicationDataPortal.Core.Models;
 
-namespace ApplicationDataPortal.Repositories
+namespace ApplicationDataPortal.Core.Repositories
 {
     public interface IDisplayTypesRepositories
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
-using ApplicationDataPortal.Models;
+using ApplicationDataPortal.Core.Models.AccountModels;
 
 namespace ApplicationDataPortal.Controllers
 {

@@ -233,41 +233,41 @@
     <Compile Include="Controllers\DisplayTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Dtos\CustomersDto.cs" />
-    <Compile Include="Dtos\DisplayTypeDto.cs" />
+    <Compile Include="Core\CustomersDto.cs" />
+    <Compile Include="Core\DisplayTypeDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705291343191_InitialCommit.cs" />
-    <Compile Include="Migrations\201705291343191_InitialCommit.Designer.cs">
+    <Compile Include="Persistence\Migrations\201705291343191_InitialCommit.cs" />
+    <Compile Include="Persistence\Migrations\201705291343191_InitialCommit.Designer.cs">
       <DependentUpon>201705291343191_InitialCommit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705291350006_AddedCustomersAndDisplayTypes.cs" />
-    <Compile Include="Migrations\201705291350006_AddedCustomersAndDisplayTypes.Designer.cs">
+    <Compile Include="Persistence\Migrations\201705291350006_AddedCustomersAndDisplayTypes.cs" />
+    <Compile Include="Persistence\Migrations\201705291350006_AddedCustomersAndDisplayTypes.Designer.cs">
       <DependentUpon>201705291350006_AddedCustomersAndDisplayTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705291401473_SeedCustomers.cs" />
-    <Compile Include="Migrations\201705291401473_SeedCustomers.Designer.cs">
+    <Compile Include="Persistence\Migrations\201705291401473_SeedCustomers.cs" />
+    <Compile Include="Persistence\Migrations\201705291401473_SeedCustomers.Designer.cs">
       <DependentUpon>201705291401473_SeedCustomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705311707426_addMockPromotionObject.cs" />
-    <Compile Include="Migrations\201705311707426_addMockPromotionObject.Designer.cs">
+    <Compile Include="Persistence\Migrations\201705311707426_addMockPromotionObject.cs" />
+    <Compile Include="Persistence\Migrations\201705311707426_addMockPromotionObject.Designer.cs">
       <DependentUpon>201705311707426_addMockPromotionObject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountModels\AccountViewModels.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\DisplayTypes.cs" />
-    <Compile Include="Models\AccountModels\IdentityModels.cs" />
-    <Compile Include="Models\AccountModels\ManageViewModels.cs" />
-    <Compile Include="Models\Promotions.cs" />
-    <Compile Include="Persistence\IUnitOfWork.cs" />
+    <Compile Include="Persistence\Migrations\Configuration.cs" />
+    <Compile Include="Core\Models\AccountModels\AccountViewModels.cs" />
+    <Compile Include="Core\Models\Customer.cs" />
+    <Compile Include="Core\Models\DisplayTypes.cs" />
+    <Compile Include="Core\Models\AccountModels\IdentityModels.cs" />
+    <Compile Include="Core\Models\AccountModels\ManageViewModels.cs" />
+    <Compile Include="Core\Models\Promotions.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CustomersRepository.cs" />
     <Compile Include="Repositories\DisplayTypesRepositories.cs" />
-    <Compile Include="Repositories\ICustomersRepository.cs" />
-    <Compile Include="Repositories\IDisplayTypesRepositories.cs" />
+    <Compile Include="Core\Repositories\ICustomersRepository.cs" />
+    <Compile Include="Core\Repositories\IDisplayTypesRepositories.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -590,6 +590,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Dtos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -607,16 +608,16 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705291343191_InitialCommit.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201705291343191_InitialCommit.resx">
       <DependentUpon>201705291343191_InitialCommit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705291350006_AddedCustomersAndDisplayTypes.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201705291350006_AddedCustomersAndDisplayTypes.resx">
       <DependentUpon>201705291350006_AddedCustomersAndDisplayTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705291401473_SeedCustomers.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201705291401473_SeedCustomers.resx">
       <DependentUpon>201705291401473_SeedCustomers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705311707426_addMockPromotionObject.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201705311707426_addMockPromotionObject.resx">
       <DependentUpon>201705311707426_addMockPromotionObject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

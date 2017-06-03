@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ApplicationDataPortal.Models;
+using ApplicationDataPortal.Core.Models;
+using ApplicationDataPortal.Core.Models.AccountModels;
+using ApplicationDataPortal.Core.Repositories;
 
 namespace ApplicationDataPortal.Repositories
 {

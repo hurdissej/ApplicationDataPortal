@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace ApplicationDataPortal.Models
+namespace ApplicationDataPortal.Core.Models
 {
     public class Promotions
     {
