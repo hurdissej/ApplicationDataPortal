@@ -15,15 +15,11 @@ namespace ApplicationDataPortal.Controllers.API
 {
     public class DisplayTypesController : ApiController
     {
-        private ApplicationDbContext _context;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-
-        public DisplayTypesController()
+        public DisplayTypesController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
-            _unitOfWork = new UnitOfWork(_context);
-
+            _unitOfWork = unitOfWork;
         }
 
         //Get /api/DisplayTypes

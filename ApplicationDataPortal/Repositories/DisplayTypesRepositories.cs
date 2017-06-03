@@ -10,7 +10,7 @@ using ApplicationDataPortal.Models;
 namespace ApplicationDataPortal.Repositories
 {
 
-    public class DisplayTypesRepositories
+    public class DisplayTypesRepositories : IDisplayTypesRepositories
     {
         private readonly ApplicationDbContext _context;
 

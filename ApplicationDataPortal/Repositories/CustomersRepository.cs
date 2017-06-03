@@ -6,7 +6,7 @@ using ApplicationDataPortal.Models;
 
 namespace ApplicationDataPortal.Repositories
 {
-    public class CustomersRepository
+    public class CustomersRepository : ICustomersRepository
     {
         public ApplicationDbContext Context { get; private set; }
 

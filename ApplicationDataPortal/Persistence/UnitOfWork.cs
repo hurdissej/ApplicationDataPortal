@@ -7,13 +7,12 @@ using ApplicationDataPortal.Repositories;
 
 namespace ApplicationDataPortal.Persistence
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         public ApplicationDbContext Context { get; set; }
 
-        public static DisplayTypesRepositories DisplayTypes { get; private set; }
-
-        public static CustomersRepository Customers { get; private set; }
+        public static IDisplayTypesRepositories DisplayTypes { get; private set; }
+        public static ICustomersRepository Customers { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
