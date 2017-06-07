@@ -26,17 +26,17 @@ namespace ApplicationDataPortal.Controllers.API
 
         //Get api/customers
 
-        public IHttpActionResult getCustomers(string query = null)
+        public IHttpActionResult GetCustomers(string query = null)
         {
-            var customersQuery = UnitOfWork.Customers.GetCustomers(query);
+            var customersQuery = _unitOfWork.Customers.GetCustomers(query);
 
             return Ok(customersQuery);
         }
 
 
-        public IHttpActionResult getCustomer(int Id)
+        public IHttpActionResult GetCustomer(int Id)
         {
-            return Ok(UnitOfWork.Customers.GetCustomer(Id));
+            return Ok(_unitOfWork.Customers.GetCustomer(Id));
         }
     }
 }

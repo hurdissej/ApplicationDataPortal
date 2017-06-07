@@ -13,8 +13,8 @@ namespace ApplicationDataPortal.Persistence
     {
         public ApplicationDbContext Context { get; set; }
 
-        public static IDisplayTypesRepositories DisplayTypes { get; private set; }
-        public static ICustomersRepository Customers { get; private set; }
+        public IDisplayTypesRepositories DisplayTypes { get; private set; }
+        public ICustomersRepository Customers { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
