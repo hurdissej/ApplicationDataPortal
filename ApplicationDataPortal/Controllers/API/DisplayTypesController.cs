@@ -35,7 +35,14 @@ namespace ApplicationDataPortal.Controllers.API
         //Get /api/DisplayTypes/1
         public IHttpActionResult GetDisplayType(int Id)
         {
-            return Ok(_unitOfWork.DisplayTypes.GetDisplayType(Id));
+            var result = _unitOfWork.DisplayTypes.GetDisplayType(Id);
+
+            if (result == null)
+            {
+                return BadRequest("Display Type Does Not Exist");
+            }
+
+            return Ok(result);
         }
         
         //Post /api/DisplayTypes/

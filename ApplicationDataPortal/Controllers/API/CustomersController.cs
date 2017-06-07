@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using ApplicationDataPortal.Core;
 using ApplicationDataPortal.Core.Models.AccountModels;
 using ApplicationDataPortal.Persistence;
 using ApplicationDataPortal.Repositories;
@@ -15,13 +16,11 @@ namespace ApplicationDataPortal.Controllers.API
     public class CustomersController : ApiController
     {
 
-        private ApplicationDbContext _context;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CustomersController()
+        public CustomersController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
-            _unitOfWork = new UnitOfWork(_context);
+            _unitOfWork = unitOfWork;
         }
 
         //Get api/customers
@@ -36,7 +35,14 @@ namespace ApplicationDataPortal.Controllers.API
 
         public IHttpActionResult GetCustomer(int Id)
         {
-            return Ok(_unitOfWork.Customers.GetCustomer(Id));
+            var result = _unitOfWork.Customers.GetCustomer(Id);
+
+            if (result == null)
+            {
+                return BadRequest("Customer does not exist");
+            }
+
+            return Ok(result);
         }
     }
 }

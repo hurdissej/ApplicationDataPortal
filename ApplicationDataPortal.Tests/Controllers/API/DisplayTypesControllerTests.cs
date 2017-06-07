@@ -83,11 +83,21 @@ namespace ApplicationDataPortal.Tests.Controllers.API
         }
 
         [TestMethod]
+        public void GetDisplayType_DisplayTypeDoesntExist_returnBadRequest()
+        {
+            var result = _controller.GetDisplayType(1);
+
+            result.Should().BeOfType<BadRequestErrorMessageResult>();
+        }
+
+        [TestMethod]
         public void GetDisplayType_DisplayTypeProvided_GetDisplayType()
         {
             var displayType = new DisplayTypes();
 
-            var result = _controller.GetDisplayType(displayType.Id);
+            _mockRepository.Setup(r => r.GetDisplayType(1)).Returns(displayType);
+
+            var result = _controller.GetDisplayType(1);
 
             result.Should().BeOfType<OkNegotiatedContentResult<DisplayTypes>>();
         }
