@@ -15,12 +15,14 @@ namespace ApplicationDataPortal.Persistence
 
         public IDisplayTypesRepositories DisplayTypes { get; private set; }
         public ICustomersRepository Customers { get; private set; }
+        public IPromotionsRepository Promotions { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
             Context = context;
             DisplayTypes = new DisplayTypesRepositories(context);
             Customers = new CustomersRepository(context);
+            Promotions = new PromotionsRepository(context);
 
         }
 

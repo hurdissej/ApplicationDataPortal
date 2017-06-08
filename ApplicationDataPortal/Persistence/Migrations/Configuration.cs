@@ -12,7 +12,7 @@ namespace ApplicationDataPortal.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = "@Persistence/Migrations";
+            MigrationsDirectory = @"Persistence\Migrations";
         }
 
         protected override void Seed(ApplicationDbContext context)

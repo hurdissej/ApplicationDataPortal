@@ -1,5 +1,6 @@
 ﻿using ApplicationDataPortal.Core.Models.AccountModels;
 using ApplicationDataPortal.Core.Repositories;
+using ApplicationDataPortal.Repositories;
 
 namespace ApplicationDataPortal.Core
 {
@@ -7,6 +8,7 @@ namespace ApplicationDataPortal.Core
     {
         IDisplayTypesRepositories DisplayTypes { get; }
         ICustomersRepository Customers { get; }
+        IPromotionsRepository Promotions { get; }
         void Complete();
     }
 }

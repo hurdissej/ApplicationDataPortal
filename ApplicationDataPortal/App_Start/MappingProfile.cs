@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ApplicationDataPortal.Core;
+using ApplicationDataPortal.Core.Dtos;
 using ApplicationDataPortal.Core.Models;
 using AutoMapper;
 

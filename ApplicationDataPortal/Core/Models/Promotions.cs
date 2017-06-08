@@ -10,6 +10,6 @@ namespace ApplicationDataPortal.Core.Models
 
         public DisplayTypes DisplayTypes { get; set; }
         public int DisplayTypesId { get; set; }
-       
+
     }
 }

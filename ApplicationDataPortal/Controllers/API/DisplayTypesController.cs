@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ApplicationDataPortal.Core;
+using ApplicationDataPortal.Core.Dtos;
 using ApplicationDataPortal.Core.Models;
 using ApplicationDataPortal.Persistence;
 using ApplicationDataPortal.Repositories;
@@ -74,13 +75,21 @@ namespace ApplicationDataPortal.Controllers.API
         public IHttpActionResult DeleteDisplayType(int Id)
         {
             var displayTypeInDb = _unitOfWork.DisplayTypes.GetDisplayType(Id);
+            var attachedPromotions = _unitOfWork.Promotions.GetNumberOfPromotionsOnDisplayType(Id);
 
             if (displayTypeInDb == null)
             {
                 return BadRequest("Display Type not found");
             }
+
+            if (attachedPromotions > 0)
+            {
+                return BadRequest("Dislay Type Used in promotions");
+            }
+
             _unitOfWork.DisplayTypes.DeleteDisplayType(Id);
             _unitOfWork.Complete();
+
             return Ok();
         }
     }

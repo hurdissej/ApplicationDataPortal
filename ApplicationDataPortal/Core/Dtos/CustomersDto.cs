@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ApplicationDataPortal.Core
+namespace ApplicationDataPortal.Core.Dtos
 {
     public class CustomersDto
     {

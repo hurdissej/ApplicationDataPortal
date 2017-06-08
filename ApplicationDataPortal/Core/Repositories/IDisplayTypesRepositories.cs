@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ApplicationDataPortal.Core.Dtos;
 using ApplicationDataPortal.Core.Models;
 
 namespace ApplicationDataPortal.Core.Repositories

@@ -233,8 +233,8 @@
     <Compile Include="Controllers\DisplayTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Core\CustomersDto.cs" />
-    <Compile Include="Core\DisplayTypeDto.cs" />
+    <Compile Include="Core\Dtos\CustomersDto.cs" />
+    <Compile Include="Core\Dtos\DisplayTypeDto.cs" />
     <Compile Include="Core\Models\AccountModels\IApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -269,6 +269,8 @@
     <Compile Include="Repositories\DisplayTypesRepositories.cs" />
     <Compile Include="Core\Repositories\ICustomersRepository.cs" />
     <Compile Include="Core\Repositories\IDisplayTypesRepositories.cs" />
+    <Compile Include="Core\Repositories\IPromotionsRepository.cs" />
+    <Compile Include="Repositories\PromotionsRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -591,7 +593,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Dtos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

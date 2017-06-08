@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using ApplicationDataPortal.Core;
+using ApplicationDataPortal.Core.Dtos;
 using ApplicationDataPortal.Core.Models;
 using ApplicationDataPortal.Core.Models.AccountModels;
 using ApplicationDataPortal.Core.Repositories;

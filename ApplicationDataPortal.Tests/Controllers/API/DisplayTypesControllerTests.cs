@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Web.Http.Results;
 using ApplicationDataPortal.Controllers.API;
 using ApplicationDataPortal.Core;
+using ApplicationDataPortal.Core.Dtos;
 using ApplicationDataPortal.Core.Models;
 using ApplicationDataPortal.Core.Repositories;
+using ApplicationDataPortal.Repositories;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -16,14 +18,17 @@ namespace ApplicationDataPortal.Tests.Controllers.API
     {
         private DisplayTypesController _controller;
         private Mock<IDisplayTypesRepositories> _mockRepository;
+        private Mock<IPromotionsRepository> _mockPRepository;
 
         [TestInitialize]
         public void testInitialize()
         {
             _mockRepository = new Mock<IDisplayTypesRepositories>();
+            _mockPRepository = new Mock<IPromotionsRepository>();
 
             var mockUoW = new Mock<IUnitOfWork>();
             mockUoW.SetupGet(u => u.DisplayTypes).Returns(_mockRepository.Object);
+            mockUoW.SetupGet(u => u.Promotions).Returns(_mockPRepository.Object);
 
             _controller = new DisplayTypesController(mockUoW.Object);
         }
@@ -31,6 +36,20 @@ namespace ApplicationDataPortal.Tests.Controllers.API
         [TestMethod]
         public void DeleteDisplayType_NoDisplayTypeExists_ShouldReturnBadRequest()
         {
+            var result = _controller.DeleteDisplayType(1);
+
+            result.Should().BeOfType<BadRequestErrorMessageResult>();
+        }
+
+        [TestMethod]
+        public void DeleteDisplayType_PromotionsExist_ShouldReturnBadRequest()
+        {
+            var numberOfPromos = 321;
+            var displayType = new DisplayTypes();
+
+            _mockPRepository.Setup(r => r.GetNumberOfPromotionsOnDisplayType(1)).Returns(numberOfPromos);
+            _mockRepository.Setup(r => r.GetDisplayType(1)).Returns(displayType);
+
             var result = _controller.DeleteDisplayType(1);
 
             result.Should().BeOfType<BadRequestErrorMessageResult>();
