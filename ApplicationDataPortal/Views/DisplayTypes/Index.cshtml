@@ -62,9 +62,11 @@
                                         table.row(button.parents("tr"))
                                             .remove()
                                             .draw();
-                                        
-
+                                    },
+                                    error: function(response) {
+                                        toastr.error("Display Type could not be deleted: " + response.responseJSON.message);
                                     }
+
                                 });
                             }
                         });
