@@ -10,7 +10,7 @@ namespace ApplicationDataPortal.Core.Models
         public string Description { get; set; }
 
         public Customer Customer { get; set; }
-        [Required]
+
         [Display(Name = "Customer")]
         public int CustomerId { get; set; }
 

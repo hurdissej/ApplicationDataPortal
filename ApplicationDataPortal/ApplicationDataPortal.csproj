@@ -235,6 +235,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Core\CustomersDto.cs" />
     <Compile Include="Core\DisplayTypeDto.cs" />
+    <Compile Include="Core\Models\AccountModels\IApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

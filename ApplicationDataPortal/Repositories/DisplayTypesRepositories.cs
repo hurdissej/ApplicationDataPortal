@@ -14,9 +14,9 @@ namespace ApplicationDataPortal.Repositories
 
     public class DisplayTypesRepositories : IDisplayTypesRepositories
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
-        public DisplayTypesRepositories(ApplicationDbContext context)
+        public DisplayTypesRepositories(IApplicationDbContext context)
         {
             _context = context;
         }
