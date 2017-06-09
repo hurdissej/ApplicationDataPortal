@@ -13,6 +13,7 @@ namespace ApplicationDataPortal
                         "~/Scripts/DataTables/jquery.dataTables.js",
                         "~/Scripts/DataTables/dataTables.bootstrap.js",
                         "~/Scripts/bootstrap.js",
+                        "~/Scripts/angular.js",
                         "~/Scripts/respond.js",
                         "~/Scripts/typeahead.bundle.js",
                         "~/Scripts/bootbox.js",
