@@ -22,6 +22,19 @@
         <input id="customer" required type="text" name="customer" class="form-control"/>
     </div>
     
+    <div class="form-group">
+        <div class="tt-container">
+            <label> Global Display Type Ref </label>
+        </div>
+        <select id="globalDisplayTypeRef" name="globalDisplayTypeRef" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    
     <button id="submit" class="btn btn-primary">Submit</button>
 
 </form>
@@ -57,6 +70,7 @@
 
             $("#newDisplayTypes").submit(function(e) {
                 vm.description = $('input[name=name]').val();
+                vm.globalDisplayTypeRef = parseInt($('#globalDisplayTypeRef').find(":selected").val());
                 console.log(vm);
                 $.ajax({
                         url: '/api/DisplayTypes',

@@ -255,6 +255,10 @@
     <Compile Include="Persistence\Migrations\201705311707426_addMockPromotionObject.Designer.cs">
       <DependentUpon>201705311707426_addMockPromotionObject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\201706091029095_addDisplayTypeRef.cs" />
+    <Compile Include="Persistence\Migrations\201706091029095_addDisplayTypeRef.Designer.cs">
+      <DependentUpon>201706091029095_addDisplayTypeRef.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\Models\AccountModels\AccountViewModels.cs" />
     <Compile Include="Core\Models\Customer.cs" />
@@ -621,6 +625,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\201705311707426_addMockPromotionObject.resx">
       <DependentUpon>201705311707426_addMockPromotionObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201706091029095_addDisplayTypeRef.resx">
+      <DependentUpon>201706091029095_addDisplayTypeRef.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

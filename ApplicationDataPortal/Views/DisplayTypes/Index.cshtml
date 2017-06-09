@@ -17,6 +17,7 @@
         <th> Display Type </th>
         <th> Customer </th>
         <th> Delete Display Type </th>
+        <th> Global Display Type Ref</th>
     </tr>
     </thead>
     <tbody></tbody>
@@ -42,6 +43,8 @@
                             render: function(data) {
                                 return "<button class='btn-link js-delete' data-id=" + data + "> Delete </button>";
                             }
+                        }, {
+                            data: "globalDisplayTypeRef"
                         }
                     ]
             });

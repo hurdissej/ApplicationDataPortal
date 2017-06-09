@@ -13,5 +13,7 @@ namespace ApplicationDataPortal.Core.Dtos
         public int CustomerId { get; set; }
 
         public DateTime DateAdded { get; set; }
+
+        public int GlobalDisplayTypeRef { get; set; }
     }
 }

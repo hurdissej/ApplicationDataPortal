@@ -55,6 +55,7 @@ namespace ApplicationDataPortal.Repositories
             {
                 Description = displayTypeDto.Description,
                 CustomerId = displayTypeDto.CustomerId,
+                GlobalDisplayTypeRef = displayTypeDto.GlobalDisplayTypeRef,
                 DateAdded = DateTime.Now
             };
 

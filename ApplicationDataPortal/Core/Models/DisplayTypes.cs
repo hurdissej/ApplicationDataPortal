@@ -16,6 +16,9 @@ namespace ApplicationDataPortal.Core.Models
 
         [Display(Name = "Date Added")]
         public DateTime DateAdded { get; set; }
+        
+        [Range(1,5)]
+        public int GlobalDisplayTypeRef { get; set; }
 
 
     }
