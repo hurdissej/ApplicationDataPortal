@@ -1,11 +1,13 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="dataPortal">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title -Application Data Portal</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/lib")
 
 </head>
 <body>
@@ -28,15 +30,19 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Application Data Portal</p>
-        </footer>
-    </div>
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Application Data Portal</p>
+    </footer>
+</div>
+    
+    
+    
+    <script src="~/ClientApp/app.js"></script>
+    <script src="~/ClientApp/controllers/displayTypeController.js"></script>
 
-    @Scripts.Render("~/bundles/lib")
     @RenderSection("scripts", required: false)
 </body>
 </html>

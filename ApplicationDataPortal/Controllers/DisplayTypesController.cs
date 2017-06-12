@@ -28,12 +28,7 @@ namespace ApplicationDataPortal.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            var displayTypes = _context.DisplayTypes
-                .Include(c => c.Customer)
-                .ToList();
-            
-
-            return View(displayTypes);
+            return View();
         }
 
         public ActionResult New()

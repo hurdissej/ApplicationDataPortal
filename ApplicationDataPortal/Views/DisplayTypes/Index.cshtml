@@ -4,77 +4,24 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div ng-controller="displayTypeController">
+    <h1> Display Type Manager </h1>
 
-<h1> Display Type Manager </h1>
+    <div style="padding-bottom: 20px;">
+        @Html.ActionLink("Add", "New", "DisplayTypes", new { @class ="btn btn-primary"})
+    </div>
 
-<div style="padding-bottom: 20px;">
-    @Html.ActionLink("Add", "New", "DisplayTypes", new { @class ="btn btn-primary"})
+    <table id="displayTypes" style="width: 100%" class="table table-striped table-hover ">
+        <thead>
+        <tr>
+            <th> Display Type </th>
+            <th> Customer </th>
+            <th> Delete Display Type </th>
+            <th> Global Display Type Ref</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 </div>
 
-<table id="displayTypes" style="width: 100%" class="table table-striped table-hover ">
-    <thead>
-    <tr>
-        <th> Display Type </th>
-        <th> Customer </th>
-        <th> Delete Display Type </th>
-        <th> Global Display Type Ref</th>
-    </tr>
-    </thead>
-    <tbody></tbody>
-</table>
-
-
-@section scripts
-{
-    <script>
-        $(document).ready(function() {
-            var table  = $("#displayTypes").DataTable({
-                    ajax: {
-                        url: "/api/DisplayTypes",
-                        dataSrc: ""
-                },
-                    columns: [
-                        {
-                            data: "description"
-                        }, {
-                            data: "customer.name"
-                        }, {
-                            data: "id",
-                            render: function(data) {
-                                return "<button class='btn-link js-delete' data-id=" + data + "> Delete </button>";
-                            }
-                        }, {
-                            data: "globalDisplayTypeRef"
-                        }
-                    ]
-            });
-
-            $("#displayTypes").on("click",
-                ".js-delete",
-                function() {
-                    var button = $(this);
-                    bootbox.confirm("Are you sure you want to delete this display type?",
-                        function(result) {
-                            if (result) {
-                                $.ajax({
-                                    url: "api/DisplayTypes/" + button.attr("data-id"),
-                                    method: "Delete",
-                                    success: function() {
-                                        toastr.success("The display type has been successfully deleted!");
-                                        console.log("Row Deleted");
-                                        table.row(button.parents("tr"))
-                                            .remove()
-                                            .draw();
-                                    },
-                                    error: function(response) {
-                                        toastr.error("Display Type could not be deleted: " + response.responseJSON.message);
-                                    }
-
-                                });
-                            }
-                        });
-                });
-
-        });
-    </script>
-}
+<script src="~/ClientApp/controllers/displayTypeTableBuilder.js"></script>

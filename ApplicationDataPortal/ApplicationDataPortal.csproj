@@ -278,6 +278,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClientApp\app.js" />
+    <Content Include="ClientApp\controllers\displayTypeController.js" />
+    <Content Include="ClientApp\controllers\displayTypeTableBuilder.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
